@@ -211,13 +211,29 @@
     <div class="container">
       <h2 class="section-title center">Be first to know when FUTA launches</h2>
       <p class="muted center">Join the waitlist. We’ll email you when your corridor goes live.</p>
-      <form class="waitlist-form" onsubmit="return false;">
-        <input type="email" placeholder="you@example.com" required>
-        <button class="btn btn-primary" type="submit">Join</button>
-      </form>
-      <p class="tiny center">Or email us: <a href="mailto:hello@futapay.app">hello@futapay.app</a>
     </div>
   </section>
+
+  <form
+  name="waitlist"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="website"
+  class="waitlist-form"
+>
+  <input type="hidden" name="form-name" value="waitlist" />
+  <!-- Honeypot (invisible anti-spam field) -->
+  <p class="hidden">
+    <label>Website <input name="website" /></label>
+  </p>
+
+  <input type="email" name="email" placeholder="you@example.com" required />
+  <button class="btn btn-primary" type="submit">Join</button>
+</form>
+<p class="tiny center">
+  Or email us: <a href="mailto:hello@futapay.app">hello@futapay.app</a>
+</p>
+
 
   <footer class="site-footer">
     <div class="container footer-inner">
