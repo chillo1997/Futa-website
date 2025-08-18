@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FUTA – A Tikkie for Africa</title>
+  <meta name="description" content="FUTA lets people in Europe send small, fast, direct payments to mobile wallets in Africa. Simple links. Instant payouts. Clear fees." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">F</div>
+        <span class="brand-name">FUTA</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#features">Features</a>
+        <a href="#corridors">Corridors</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#trust">Trust & Compliance</a>
+      </nav>
+      <div class="cta-group">
+        <a href="#waitlist" class="btn btn-outline">Join waitlist</a>
+        <a href="#demo" class="btn btn-primary">Get a demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="section hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title">Send small payments to Africa—<span class="muted">instantly</span>.</h1>
+        <p class="lead">FUTA is a “Tikkie for Africa”: share a link or QR, collect in Europe (iDEAL/SEPA/cards) and payout to mobile wallets in minutes. Simple, transparent, and built for families and SMEs.</p>
+        <div class="button-row">
+          <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
+          <a href="#how" class="btn btn-outline">How it works</a>
+        </div>
+        <p class="tiny">Beta corridors: NL → Egypt, NL → DRC. More coming soon.</p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="demo-card">
+            <div class="demo-meta">
+              <span>FUTA • Payment Link</span>
+              <span>#FUTA-1482</span>
+            </div>
+            <div class="demo-grid">
+              <div class="demo-cell">
+                <div class="demo-label">From</div>
+                <div class="demo-value">Netherlands (iDEAL)</div>
+              </div>
+              <div class="demo-cell">
+                <div class="demo-label">To</div>
+                <div class="demo-value">Egypt (Vodafone Cash)</div>
+              </div>
+              <div class="demo-cell">
+                <div class="demo-label">Amount</div>
+                <div class="demo-value">€25 → EGP (fx live)</div>
+              </div>
+              <div class="demo-cell">
+                <div class="demo-label">Fees</div>
+                <div class="demo-value">Shown upfront</div>
+              </div>
+            </div>
+            <button class="btn btn-block">Pay with iDEAL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works (with toggle) -->
+  <section id="how" class="section section--alt">
+    <div class="container">
+      <div class="toggle">
+        <button class="toggle-btn is-active" data-target="how-sender">I'm sending</button>
+        <button class="toggle-btn" data-target="how-receiver">I'm receiving</button>
+      </div>
+
+      <div id="how-sender" class="how-steps grid-3">
+        <div>
+          <div class="role-badge">Sender</div>
+          <div class="step">1</div>
+          <h3>Open link & pay</h3>
+          <p>Open the FUTA link from the receiver and pay via iDEAL/SEPA/cards. Fees and FX are shown upfront.</p>
+        </div>
+        <div>
+          <div class="role-badge">Processing</div>
+          <div class="step">2</div>
+          <h3>Payment processing</h3>
+          <p>Your payment is processed by our licensed partners. Once confirmed, a payout is triggered automatically.</p>
+        </div>
+        <div>
+          <div class="role-badge">Receiver</div>
+          <div class="step">3</div>
+          <h3>Wallet credited</h3>
+          <p>The receiver’s mobile wallet (e.g., Vodafone Cash, M‑Pesa, Orange Money) is credited and both parties get a receipt.</p>
+        </div>
+      </div>
+
+      <div id="how-receiver" class="how-steps grid-3 hidden">
+        <div>
+          <div class="role-badge">Receiver</div>
+          <div class="step">1</div>
+          <h3>Create a FUTA link</h3>
+          <p>Enter your mobile wallet and the amount. Generate a secure FUTA link and share it with the sender via WhatsApp/SMS/email.</p>
+        </div>
+        <div>
+          <div class="role-badge">Sender</div>
+          <div class="step">2</div>
+          <h3>Sender pays</h3>
+          <p>The sender opens the link and pays via iDEAL/SEPA/cards. Fees and FX are shown upfront; funds settle to our partners.</p>
+        </div>
+        <div>
+          <div class="role-badge">Payout</div>
+          <div class="step">3</div>
+          <h3>Instant payout</h3>
+          <p>On confirmation, FUTA triggers a payout to your wallet via licensed partners. You can reuse the link or create a new one anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Built for small, frequent transfers</h2>
+      <div class="grid-4">
+        <div class="card"><h3>Transparent pricing</h3><p>No surprises—fees and FX shown before you pay.</p></div>
+        <div class="card"><h3>Real-time payouts</h3><p>Where supported, payouts land in minutes to supported wallets.</p></div>
+        <div class="card"><h3>Security first</h3><p>Bank-grade encryption, fraud monitoring, and KYC/KYB controls via partners.</p></div>
+        <div class="card"><h3>Balances (coming soon)</h3><p>Top up a FUTA balance via licensed custodians; spend anytime to supported wallets. No custody by FUTA.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corridors -->
+  <section id="corridors" class="section">
+    <div class="container">
+      <h2 class="section-title">Initial corridors</h2>
+      <div class="grid-2">
+        <div class="card card--dark">
+          <h3>NL → Egypt</h3>
+          <p>Vodafone Cash, Orange Money, Etisalat Cash, Meeza wallets*</p>
+          <p class="tiny">*Availability depends on partner integrations and local regulations.</p>
+        </div>
+        <div class="card">
+          <h3>NL → DRC</h3>
+          <p>M-Pesa (Vodacom), Orange Money, Airtel Money*</p>
+          <p class="tiny">*Availability depends on partner integrations and local regulations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2 class="section-title">Simple pricing (beta)</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Per transfer</h3><p>Flat fee + small % of amount. FX mid-market + margin.</p></div>
+        <div class="card"><h3>Volume tiers</h3><p>Lower fees for NGOs and business bulk payouts.</p></div>
+        <div class="card"><h3>No monthly lock-in</h3><p>Start small. Scale as you grow.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="section">
+    <div class="container">
+      <h2 class="section-title">Roadmap</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Stored balances (Phase 2)</h3><p>Optional wallet top‑ups held by a licensed e‑money partner. FUTA remains a technical platform.</p></div>
+        <div class="card"><h3>Scheduled transfers</h3><p>Set and forget weekly/monthly payments to family or vendors.</p></div>
+        <div class="card"><h3>Saved recipients</h3><p>One‑tap repeat to verified wallets across corridors.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Compliance -->
+  <section id="trust" class="section section--alt">
+    <div class="container trust-grid">
+      <div>
+        <h2 class="section-title">Trust & Compliance</h2>
+        <p>FUTA partners with licensed payment institutions and mobile money operators. We never custody funds beyond settlement with regulated partners.</p>
+      </div>
+      <ul>
+        <li>• KYC/KYB and AML controls (via partners)</li>
+        <li>• GDPR-ready data handling</li>
+        <li>• PCI-DSS SAQ-A (hosted payments)</li>
+      </ul>
+      <div class="tiny">
+        <p>Legal entities: FUTA (working name). © <span id="year"></span> All rights reserved.</p>
+        <p>This website is for early access to our beta. Service availability depends on compliance approvals and partner integrations in each corridor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist / Contact -->
+  <section id="waitlist" class="section waitlist">
+    <div class="container">
+      <h2 class="section-title center">Be first to know when FUTA launches</h2>
+      <p class="muted center">Join the waitlist. We’ll email you when your corridor goes live.</p>
+      <form class="waitlist-form" onsubmit="return false;">
+        <input type="email" placeholder="you@example.com" required>
+        <button class="btn btn-primary" type="submit">Join</button>
+      </form>
+      <p class="tiny center">Or email us: <a href="mailto:hello@futa.app">hello@futa.app</a></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year2"></span> FUTA</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const y = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    const year2El = document.getElementById('year2');
+    if (yearEl) yearEl.textContent = y;
+    if (year2El) year2El.textContent = y;
+
+    // Toggle logic for how-it-works
+    const btns = document.querySelectorAll('.toggle-btn');
+    const sections = document.querySelectorAll('.how-steps');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        sections.forEach(s => s.classList.add('hidden'));
+        const target = document.getElementById(btn.dataset.target);
+        if (target) target.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
