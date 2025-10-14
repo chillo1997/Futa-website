@@ -39,6 +39,18 @@ body {
 .main-nav a:hover { color: #334155; }
 .cta-group { display: flex; gap: 8px; }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo-img {
+  width: 150px;
+  height: 80px;
+  border-radius: 16px; /* optional, if your logo is round */
+  display: block;
+}
+
 @media (min-width: 768px) { .main-nav { display: flex; } }
 
 /* Buttons */
