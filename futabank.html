@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FutaBank — Nyota Technologies</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <header class="header">
+  <div class="container nav">
+    <!-- Brand: logo-only. The anchor has an accessible name (aria-label).
+         The img alt is empty because the anchor already provides the accessible name. -->
+    <a class="brand" href="index.html" aria-label="Nyota Technologies home">
+      <img src="Nyota-technologies-logo1.png" alt="" class="logo-img" />
+      <!-- Visually hidden fallback if you prefer real text for screen readers:
+           <span class="visually-hidden">Nyota Technologies</span> -->
+    </a>
+
+    <button class="burger" type="button" aria-label="Toggle navigation"
+            aria-controls="primary-menu" aria-expanded="false">☰</button>
+
+    <nav aria-label="Primary navigation">
+      <ul id="primary-menu" class="menu" role="menubar" aria-label="Primary">
+        <li><a href="why-nyota.html">Why Nyota</a></li>
+        <li class="has-submenu">
+          <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Our products</button>
+          <ul class="submenu" role="menu" aria-label="Products submenu">
+            <li><a href="futapay.html">FutaPay</a></li>
+            <li><a href="futabank.html">FutaBank</a></li>
+            <li><a href="nyotamobile.html">NyotaMobile</a></li>
+          </ul>
+        </li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a class="cta" href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="section">
+    <div class="container">
+      <h2>FutaBank</h2>
+      <p class="lead">The future home for simple accounts and helpful business tools.</p>
+      <p>Roadmap ideas: local IBANs, savings pots, lightweight invoicing, and easy cash‑out options. Built with compliance in mind. <br>
+      FutaBank (early stage) is a next-generation wallet built for how Africa moves—helping you manage balances, pay seamlessly,
+       and move money across borders with confidence. 
+       We’re designing for flexibility and fairness: clear pricing, fast settlements, and a product that meets you where you are—at home, at work, or on the move.
+      FutaBank is in active development; capabilities, coverage, and timelines may evolve as we validate with users and partners.</p>
+    </div>
+  </main>
+  
+<footer class="footer">
+  <div class="container">
+    © 2025 Nyota Technologies. All rights reserved. · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+
+</body>
+</html>

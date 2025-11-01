@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Legal — Nyota Technologies</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <header class="header">
+  <div class="container nav">
+    <!-- Brand: logo-only. The anchor has an accessible name (aria-label).
+         The img alt is empty because the anchor already provides the accessible name. -->
+    <a class="brand" href="index.html" aria-label="Nyota Technologies home">
+      <img src="Nyota-technologies-logo1.png" alt="" class="logo-img" />
+      <!-- Visually hidden fallback if you prefer real text for screen readers:
+           <span class="visually-hidden">Nyota Technologies</span> -->
+    </a>
+
+    <button class="burger" type="button" aria-label="Toggle navigation"
+            aria-controls="primary-menu" aria-expanded="false">☰</button>
+
+    <nav aria-label="Primary navigation">
+      <ul id="primary-menu" class="menu" role="menubar" aria-label="Primary">
+        <li><a href="why-nyota.html">Why Nyota</a></li>
+        <li class="has-submenu">
+          <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Our products</button>
+          <ul class="submenu" role="menu" aria-label="Products submenu">
+            <li><a href="futapay.html">FutaPay</a></li>
+            <li><a href="futabank.html">FutaBank</a></li>
+            <li><a href="nyotamobile.html">NyotaMobile</a></li>
+          </ul>
+        </li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a class="cta" href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- Legal / Company Information (EN) -->
+<section class="section" id="legal-company" aria-labelledby="legal-heading">
+  <div class="container">
+    <h2 id="legal-heading">Company Legal Information</h2>
+
+    <p>
+      <strong>Registered name:</strong> Nyota Technologies B.V.<br>
+      <strong>Registered seat (city):</strong> Deventer, The Netherlands
+    </p>
+
+    <h3>Corporate Objects (Summary)</h3>
+    <ol>
+      <li>To develop and operate <strong>digital infrastructure for payments, connectivity, and logistics</strong>.</li>
+      <li>To incorporate, acquire interests in, manage, supervise, advise, and finance companies and other legal entities.</li>
+      <li>To acquire, manage, exploit, encumber, and dispose of assets — including <strong>intellectual property rights</strong> — and to invest funds.</li>
+      <li>To provide and obtain loans, in particular (but not limited to) for the benefit of <strong>subsidiaries, group companies, and participations</strong>.</li>
+      <li>To enter into agreements under which the company acts as a <strong>guarantor or joint and several co-debtor</strong>, provides security, or otherwise assumes obligations (in particular—but not limited to—for the benefit of subsidiaries, group companies, and participations).</li>
+      <li>To perform all activities that are related or conducive to the foregoing.</li>
+    </ol>
+
+    <h3>Regulatory & Disclaimers</h3>
+    <ul>
+      <li>E-money accounts (where offered) are issued by the relevant licensed partner and safeguarded in accordance with applicable regulations. Nyota Technologies B.V. does not itself hold customer funds.</li>
+      <li>Investment features (if any) involve risk of loss and are not covered by deposit guarantee schemes. Nothing on this site constitutes financial advice.</li>
+      <li>Use of our services may require identity verification (KYC) and ongoing compliance checks. Fees, FX rates, and limits apply and may change; the total cost is shown before you confirm a transaction.</li>
+    </ul>
+
+    <p class="small">
+      This page is a plain-language summary for information purposes only. In case of discrepancy,
+      the company’s articles of association as recorded in the notarial deed prevail.
+    </p>
+
+    <!-- Optional company identifiers (fill when ready) -->
+    <p class="small">
+      <strong>Chamber of Commerce (KvK):</strong> 98736620 &nbsp;•&nbsp;
+      <strong>VAT ID (BTW-ID):</strong> [.....] &nbsp;•&nbsp;
+      <strong>Contact:</strong> <a href="mailto:hello@nyotatechnologies.com">hello@nyotatechnologies.com</a>
+    </p>
+  </div>
+</section>
+
+  
+<footer class="footer">
+  <div class="container">
+    © 2025 Nyota Technologies. All rights reserved. · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+
+</body>
+</html>

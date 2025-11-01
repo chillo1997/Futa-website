@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Nyota — Nyota Technologies</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <header class="header">
+  <div class="container nav">
+    <!-- Brand: logo-only. The anchor has an accessible name (aria-label).
+         The img alt is empty because the anchor already provides the accessible name. -->
+    <a class="brand" href="index.html" aria-label="Nyota Technologies home">
+      <img src="Nyota-technologies-logo1.png" alt="" class="logo-img" />
+      <!-- Visually hidden fallback if you prefer real text for screen readers:
+           <span class="visually-hidden">Nyota Technologies</span> -->
+    </a>
+
+    <button class="burger" type="button" aria-label="Toggle navigation"
+            aria-controls="primary-menu" aria-expanded="false">☰</button>
+
+    <nav aria-label="Primary navigation">
+      <ul id="primary-menu" class="menu" role="menubar" aria-label="Primary">
+        <li><a href="why-nyota.html">Why Nyota</a></li>
+        <li class="has-submenu">
+          <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Our products</button>
+          <ul class="submenu" role="menu" aria-label="Products submenu">
+            <li><a href="futapay.html">FutaPay</a></li>
+            <li><a href="futabank.html">FutaBank</a></li>
+            <li><a href="nyotamobile.html">NyotaMobile</a></li>
+          </ul>
+        </li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a class="cta" href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+     <section class="section">
+      <div class="container">
+        <h2>Why Nyota</h2>
+        <p class="lead">We’re building practical tools for real people and small businesses: fewer clicks, clear pricing, and the right partners.</p>
+        <div class="grid cols-3">
+          <div class="card">
+            <img class="thumb" src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1200&auto=format&fit=crop" alt="People collaborating in a bright workspace">
+            <div class="content">
+              <h3>Trust & simplicity</h3>
+              <p>Clear language, no dark patterns, and strong compliance foundations.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="thumb" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop" alt="Developer working on a laptop">
+            <div class="content">
+              <h3>Modern rails</h3>
+              <p>SEPA/iDEAL in Europe, mobile wallets in Africa, stitched together cleanly.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="thumb" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop" alt="City skyline at dusk representing cross-border reach">
+            <div class="content">
+              <h3>Human support</h3>
+              <p>We keep the human in fintech: helpful docs and real assistance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+<footer class="footer">
+  <div class="container">
+    © 2025 Nyota Technologies. All rights reserved. · <a href="legal.html#privacy">Privacy</a> · <a href="legal.html#terms">Terms</a>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+
+</body>
+</html>
