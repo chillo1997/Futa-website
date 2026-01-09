@@ -7,6 +7,9 @@
   --border: #e2e8f0;       /* slate-200 */
   --card: #ffffff;
   --dark: #0f172a;         /* dark card */
+
+  /* ✅ Used to keep the header under the beta bar */
+  --fp-announce-h: 0px;
 }
 
 * { box-sizing: border-box; }
@@ -29,7 +32,14 @@ body {
 .lead { font-size: 18px; color: #334155; margin: 16px 0 24px; }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.8); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.site-header {
+  position: sticky;
+  top: var(--fp-announce-h);
+  z-index: 30;
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
 .brand { display: flex; align-items: center; gap: 8px; }
 .logo { width: 32px; height: 32px; border-radius: 16px; background: var(--dark); color: #fff; display: grid; place-items: center; font-weight: 800; }
@@ -121,3 +131,83 @@ body {
 .toggle-btn.is-active{background:#0f172a;color:#fff}
 .hidden{display:none !important}
 
+/* =========================================
+   ✅ FutaPay Beta Announcement Bar
+========================================= */
+.fp-announce{
+  position: sticky;
+  top: 0;
+  z-index: 50; /* above header (header is 30) */
+  background: rgba(15,23,42,.96); /* matches --dark */
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+}
+
+.fp-announce__inner{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+}
+
+.fp-announce__badge{
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.16);
+  white-space: nowrap;
+}
+
+.fp-announce__text{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  opacity: .95;
+  flex: 1;
+}
+
+.fp-announce__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 12px; /* matches your buttons */
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fp-announce__cta:hover{
+  background: rgba(255,255,255,.16);
+}
+
+.fp-announce__close{
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 12px;
+}
+
+.fp-announce__close:hover{
+  background: rgba(255,255,255,.10);
+}
+
+@media (max-width: 720px){
+  .fp-announce__inner{
+    flex-wrap: wrap;
+  }
+  .fp-announce__cta{
+    width: 100%;
+  }
+}
