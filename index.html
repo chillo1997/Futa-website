@@ -1,354 +1,1370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FutaPay – Pay fast, no issues</title>
-  <meta name="description" content="FutaPay lets people in Europe send small, fast, direct payments to mobile wallets in Africa. Simple links. Instant payouts. Clear fees." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>FutaPay — Simple payments between Europe and Africa</title>
+  <meta
+    name="description"
+    content="Simple payment links between Europe and Africa. FutaPay is preparing for launch in December 2026."
+  >
 
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --navy: #0f172a;
+      --navy-hover: #1e293b;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 160px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .container {
+      width: min(1152px, 100%);
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    .section {
+      padding-block: 76px;
+    }
+
+    .section--alt {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 30px;
+      color: var(--muted);
+    }
+
+    .tiny {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .announce {
+      padding: 12px 24px;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 22px;
+      min-height: 88px;
+      padding-block: 18px;
+    }
+
+    .brand {
+      display: inline-block;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .language-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      direction: ltr;
+    }
+
+    .language-switch button {
+      min-height: 44px;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-grid > *,
+    .grid-2 > *,
+    .grid-3 > *,
+    .header-inner > * {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 16px 0 24px;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -2px;
+    }
+
+    .lead {
+      max-width: 620px;
+      color: #475569;
+      font-size: 18px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, .04);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .card p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .demo-card {
+      padding: 30px;
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, .12);
+    }
+
+    .demo-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #334155;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .demo-title {
+      margin: 26px 0;
+      font-size: 28px;
+      line-height: 1.3;
+      letter-spacing: -.7px;
+    }
+
+    .demo-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: #334155;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .demo-card .tiny {
+      color: #cbd5e1;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      background: #f1f5f9;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .route {
+      margin-block: 14px;
+      font-size: 18px;
+    }
+
+    .waitlist {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .waitlist .section-intro {
+      margin-inline: auto;
+    }
+
+    .waitlist-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      max-width: 700px;
+      margin: 28px auto 0;
+    }
+
+    .waitlist-form input[type="email"] {
+      width: 100%;
+      min-width: 0;
+      min-height: 56px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--white);
+      color: var(--text);
+      font-size: 18px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .waitlist-form input::placeholder {
+      color: var(--muted);
+    }
+
+    .waitlist-form input:focus {
+      outline: 2px solid #475569;
+      outline-offset: 2px;
+    }
+
+    .waitlist-submit {
+      min-height: 56px;
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 16px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .waitlist-submit:hover {
+      background: var(--navy-hover);
+    }
+
+    .waitlist-contact {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .waitlist-contact a {
+      color: #165dde;
+      unicode-bidi: isolate;
+    }
+
+    .site-footer {
+      padding-block: 28px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      color: #475569;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -10000px;
+    }
+
+    .skip-link:focus {
+      left: 20px;
+      top: 20px;
+      z-index: 100;
+      padding: 14px;
+      background: var(--white);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #d99a24;
+      outline-offset: 4px;
+    }
+
+    html[lang="ar"] body {
+      font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+    }
+
+    html[dir="rtl"] .hero-title,
+    html[dir="rtl"] .section-title,
+    html[dir="rtl"] .demo-title,
+    html[dir="rtl"] .eyebrow {
+      letter-spacing: normal;
+    }
+
+    html[dir="rtl"] .hero-title {
+      line-height: 1.4;
+    }
+
+    html[dir="rtl"] .section-title {
+      line-height: 1.5;
+    }
+
+    html[dir="rtl"] .lead,
+    html[dir="rtl"] .card p {
+      line-height: 1.9;
+    }
+
+    @media (max-width: 1060px) {
+      .header-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+      }
+
+      .brand {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .language-switch {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .main-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding-block: 48px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .hero-title {
+        letter-spacing: -1px;
+      }
+
+      .card,
+      .demo-card {
+        padding: 24px;
+      }
+
+      .main-nav a {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .brand {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .language-switch {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .main-nav {
+        grid-column: 1;
+        grid-row: 3;
+        gap: 8px 14px;
+      }
+
+      .language-switch button {
+        padding: 7px 9px;
+        font-size: 13px;
+      }
+
+      .waitlist-form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .waitlist-submit {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        padding-inline: 18px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- ✅ Beta announcement bar -->
-  <div class="fp-announce" id="fp-announce" role="region" aria-label="FutaPay beta announcement">
-    <div class="container fp-announce__inner">
-      <span class="fp-announce__badge">BETA • LIVE</span>
+  <a class="skip-link" href="#main" data-i18n="skip">
+    Skip to content
+  </a>
 
-      <p class="fp-announce__text">
-        <strong>Beta is live now.</strong> Contact us for early access.
-      </p>
-
-      <a class="fp-announce__cta" href="#waitlist">Join now</a>
-
-      <button class="fp-announce__close" type="button" aria-label="Dismiss announcement">
-        ✕
-      </button>
-    </div>
+  <div class="announce" data-i18n="announcement">
+    Coming soon · Target launch: December 2026
   </div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
-        <a href="https://Nyotatechnologies.com" class="logo-link">
-          <img src="Nyota-technologies-logo1.png" alt="Nyota Tech Logo" class="logo-img" />
-        </a>
-      </div>
+      <a class="brand" href="#main" aria-label="FutaPay">FutaPay</a>
 
-      <nav class="main-nav">
-        <a href="#features">Features</a>
-        <a href="#corridors">Corridors</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#trust">Trust & Compliance</a>
-        <a href="FUTAPay-WhitePaper.pdf" target="_blank" rel="noopener">White paper</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#how" data-i18n="navHow">How it works</a>
+        <a href="#corridors" data-i18n="navRoutes">Planned routes</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#waitlist" data-i18n="navWaitlist">Join waitlist</a>
       </nav>
 
-      <div class="cta-group">
-        <a href="#waitlist" class="btn btn-outline">Join waitlist</a>
-        <a href="#demo" class="btn btn-primary">Get a demo</a>
+      <div class="language-switch" role="group" aria-label="Language">
+        <button
+          type="button"
+          data-language="en"
+          lang="en"
+          dir="ltr"
+          aria-pressed="true"
+        >English</button>
+
+        <button
+          type="button"
+          data-language="fr"
+          lang="fr"
+          dir="ltr"
+          aria-pressed="false"
+        >Français</button>
+
+        <button
+          type="button"
+          data-language="ar"
+          lang="ar"
+          dir="rtl"
+          aria-pressed="false"
+        >العربية</button>
+
+        <button
+          type="button"
+          data-language="sw"
+          lang="sw"
+          dir="ltr"
+          aria-pressed="false"
+        >Kiswahili</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="section hero">
-    <div class="container hero-grid">
-      <div>
-        <h1 class="hero-title">Send small payments to Africa—<span class="muted">instantly</span>.</h1>
-
-        <p class="lead">
-          FutaPay is the fastest way to send money to your family, friends, or business partners.
-          The receiver creates a pay link and shares it with the sender via WhatsApp, SMS, or any chat app.
-          The sender pays with iDEAL, SEPA, or cards, and funds are paid out to mobile wallets within minutes.
-          Simple, transparent, and built for families and SMEs. Crossplatform made easy. From bank account to mobile wallet in minutes.
-        </p>
-
-        <div class="button-row">
-          <a href="#waitlist" class="btn btn-primary">Join the waitlist</a>
-          <a href="#how" class="btn btn-outline">How it works</a>
-        </div>
-
-        <p class="tiny">Beta corridors: NL → Egypt, NL → DRC. More coming soon.</p>
-      </div>
-
-      <div>
-        <div class="card">
-          <div class="demo-card">
-            <div class="demo-meta">
-              <span>FutaPay • Payment Link</span>
-              <span>#FUTA-1482</span>
-            </div>
-
-            <div class="demo-grid">
-              <div class="demo-cell">
-                <div class="demo-label">From</div>
-                <div class="demo-value">Netherlands (iDEAL)</div>
-              </div>
-              <div class="demo-cell">
-                <div class="demo-label">To</div>
-                <div class="demo-value">Egypt (Vodafone Cash)</div>
-              </div>
-              <div class="demo-cell">
-                <div class="demo-label">Amount</div>
-                <div class="demo-value">€25 → EGP (fx live)</div>
-              </div>
-              <div class="demo-cell">
-                <div class="demo-label">Fees</div>
-                <div class="demo-value">Shown upfront</div>
-              </div>
-            </div>
-
-            <button class="btn btn-block" id="demo">Pay with iDEAL</button>
+  <main id="main">
+    <section class="section">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" data-i18n="eyebrow">
+            One link. Closer connections.
           </div>
+
+          <h1 class="hero-title" data-i18n="heroTitle">
+            Simple payments between Europe and Africa.
+          </h1>
+
+          <p class="lead" data-i18n="heroDescription">
+            Create a payment link, share it, and make it easier for
+            someone to pay you. FutaPay is being built for families,
+            friends and businesses connected across borders.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="btn btn-primary"
+              href="#waitlist"
+              data-i18n="heroPrimary"
+            >Join the waitlist</a>
+
+            <a
+              class="btn btn-outline"
+              href="#how"
+              data-i18n="heroSecondary"
+            >See how it works</a>
+          </div>
+
+          <p class="tiny" data-i18n="launchNote">
+            Target launch: December 2026. Routes and payment options
+            will be confirmed before launch.
+          </p>
+        </div>
+
+        <div class="card demo-card">
+          <div class="demo-meta">
+            <strong>
+              <bdi>FutaPay</bdi> ·
+              <span data-i18n="paymentLink">Payment Link</span>
+            </strong>
+
+            <span data-i18n="illustration">Illustration</span>
+          </div>
+
+          <h2 class="demo-title" data-i18n="demoTitle">
+            A request you can share.
+          </h2>
+
+          <div class="demo-step">
+            <span class="step-number">1</span>
+            <span data-i18n="demoStep1">Create your payment link</span>
+          </div>
+
+          <div class="demo-step">
+            <span class="step-number">2</span>
+            <span data-i18n="demoStep2">
+              Share it in your favourite chat
+            </span>
+          </div>
+
+          <div class="demo-step">
+            <span class="step-number">3</span>
+            <span data-i18n="demoStep3">
+              Receive through a supported payout option
+            </span>
+          </div>
+
+          <p class="tiny" data-i18n="demoNote">
+            Product concept preview. This is not a live checkout.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How it works (with toggle) -->
-  <section id="how" class="section section--alt">
-    <div class="container">
-      <div class="toggle">
-        <button class="toggle-btn is-active" data-target="how-sender">I'm sending</button>
-        <button class="toggle-btn" data-target="how-receiver">I'm receiving</button>
-      </div>
+    <section id="how" class="section section--alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="howTitle">
+          A simpler way to request a payment
+        </h2>
 
-      <div id="how-sender" class="how-steps grid-3">
-        <div>
-          <div class="role-badge">Sender</div>
-          <div class="step">1</div>
-          <h3>Open link & pay</h3>
-          <p>Open the FutaPay link from the receiver and pay via iDEAL/SEPA/cards. Fees and FX are shown upfront.</p>
-        </div>
-        <div>
-          <div class="role-badge">Processing</div>
-          <div class="step">2</div>
-          <h3>Payment processing</h3>
-          <p>Your payment is processed by our licensed partners. Once confirmed, a payout is triggered automatically.</p>
-        </div>
-        <div>
-          <div class="role-badge">Receiver</div>
-          <div class="step">3</div>
-          <h3>Wallet credited</h3>
-          <p>The receiver’s mobile wallet (e.g., Vodafone Cash, M-Pesa, Orange Money) is credited and both parties get a receipt.</p>
-        </div>
-      </div>
-
-      <div id="how-receiver" class="how-steps grid-3 hidden">
-        <div>
-          <div class="role-badge">Receiver</div>
-          <div class="step">1</div>
-          <h3>Create a FutaPay link</h3>
-          <p>Enter your mobile wallet and the amount. Generate a secure FutaPay link and share it with the sender via WhatsApp/SMS/email.</p>
-        </div>
-        <div>
-          <div class="role-badge">Sender</div>
-          <div class="step">2</div>
-          <h3>Sender pays</h3>
-          <p>The sender opens the link and pays via iDEAL/SEPA/cards. Fees and FX are shown upfront; funds settle to our partners.</p>
-        </div>
-        <div>
-          <div class="role-badge">Payout</div>
-          <div class="step">3</div>
-          <h3>Instant payout</h3>
-          <p>On confirmation, FutaPay triggers a payout to your wallet via licensed partners. You can reuse the link or create a new one anytime.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="section">
-    <div class="container">
-      <h2 class="section-title">Built for frequent transfers</h2>
-      <div class="grid-4">
-        <div class="card"><h3>Transparent pricing</h3><p>No surprises—fees and FX shown before you pay.</p></div>
-        <div class="card"><h3>Real-time payouts</h3><p>Where supported, payouts land in minutes to supported wallets.</p></div>
-        <div class="card"><h3>Security first</h3><p>Bank-grade encryption, fraud monitoring, and KYC/KYB controls via partners.</p></div>
-        <div class="card"><h3>Cross platform payments</h3><p>Send money to mobile wallets all over Africa</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Corridors -->
-  <section id="corridors" class="section">
-    <div class="container">
-      <h2 class="section-title">Initial corridors</h2>
-      <div class="grid-2">
-        <div class="card card--dark">
-          <h3>NL → Egypt 🇪🇬</h3>
-          <p>Vodafone Cash, Orange Money, Etisalat Cash, Meeza wallets*</p>
-          <p class="tiny">*Availability depends on partner integrations and local regulations.</p>
-        </div>
-        <div class="card">
-          <h3>NL → DRC 🇨🇩</h3>
-          <p>M-Pesa (Vodacom), Orange Money, Airtel Money*</p>
-          <p class="tiny">*Availability depends on partner integrations and local regulations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing" class="section">
-    <div class="container">
-      <h2 class="section-title">Simple pricing (beta)</h2>
-      <div class="grid-3">
-        <div class="card"><h3>Per transfer</h3><p>Flat fee + small % of amount. FX mid-market + margin.</p></div>
-        <div class="card"><h3>Volume tiers</h3><p>Lower fees for NGOs and business bulk payouts.</p></div>
-        <div class="card"><h3>No monthly lock-in</h3><p>Start small. Scale as you grow.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section id="roadmap" class="section">
-    <div class="container">
-      <h2 class="section-title">Roadmap</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Phase 1 — Deploy & prove the first corridors (Start 2026)</h3>
-          <p>Objective: Launch FutaPay and ensure the first corridors process transfers flawlessly end-to-end. Target window: February - March 2026 (soft-launch → GA)</p>
-        </div>
-
-        <div class="card">
-          <h3>Phase 2 — Corridor expansion (mid 2026)</h3>
-          <p>Objective: Add more sending countries/receiving markets while preserving Phase-1 reliability. Cadence: Add 1–2 new corridors per quarter after a 4-week pilot each.</p>
-        </div>
-
-        <div class="card">
-          <h3>Phase 3 — Africa → Europe sends (2027)</h3>
-          <p>Objective: Enable reverse flow: senders in Africa → receivers in Europe.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust & Compliance -->
-  <section id="trust" class="section section--alt">
-    <div class="container trust-grid">
-      <div>
-        <h2 class="section-title">Trust & Compliance</h2>
-        <p>
-          FutaPay is a product of Nyota-Technologies (Netherlands). We move money through EU-licensed payment institutions;
-          Nyota-Technologies does not hold customer funds. <br>
-          Card data is processed by our PCI-DSS–certified processors, and we comply with GDPR.
-        </p>
-      </div>
-
-      <ul>
-        <li>• KYC/KYB and AML controls (via partners)</li>
-        <li>• GDPR-ready data handling</li>
-        <li>• PCI-DSS SAQ-A (hosted payments)</li>
-      </ul>
-
-      <div class="tiny">
-        <p>Legal entities: Nyota-Technologies. © <span id="year"></span> All rights reserved.</p>
-        <p>This website is for early access to our beta. Service availability depends on compliance approvals and partner integrations in each corridor.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Waitlist / Contact -->
-  <section id="waitlist" class="section waitlist">
-    <div class="container">
-      <h2 class="section-title center">Be first to know when FutaPay launches</h2>
-      <p class="muted center">Join the waitlist. We’ll email you when your corridor goes live.</p>
-
-      <form
-        name="waitlist"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="website"
-        class="waitlist-form"
-      >
-        <input type="hidden" name="form-name" value="waitlist" />
-
-        <!-- Honeypot (invisible anti-spam field) -->
-        <p class="hidden">
-          <label>Website <input name="website" /></label>
+        <p class="section-intro" data-i18n="howIntro">
+          Here is how FutaPay is designed to work on supported routes.
         </p>
 
-        <input type="email" name="email" placeholder="you@example.com" required />
-        <button class="btn btn-primary" type="submit">Join</button>
-      </form>
+        <div class="grid-3">
+          <article class="card">
+            <h3 data-i18n="how1Title">1. Create a link</h3>
+            <p data-i18n="how1Body">
+              The receiver enters the amount and selects an available
+              payout option.
+            </p>
+          </article>
 
-      <p class="tiny center">
-        Or email us:
-        <a href="mailto:hello@futapay.app">hello@futapay.app</a><br>
-        <a href="mailto:hello@nyotatechnologies.com">hello@nyotatechnologies.com</a>
-      </p>
-    </div>
-  </section>
+          <article class="card">
+            <h3 data-i18n="how2Title">2. Share it</h3>
+            <p data-i18n="how2Body">
+              Send the link through WhatsApp, SMS or email. The sender
+              reviews the payment details and available payment methods.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="how3Title">3. Receive the payment</h3>
+            <p data-i18n="how3Body">
+              After payment confirmation and required checks, the payout
+              is processed. Available methods and timing depend on the route.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="featuresTitle">
+          Built around everyday connections
+        </h2>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3 data-i18n="feature1Title">Easy to share</h3>
+            <p data-i18n="feature1Body">
+              A payment request that fits into the conversations
+              you already have.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="feature2Title">Clarity before payment</h3>
+            <p data-i18n="feature2Body">
+              Our goal: show the fee, exchange rate and amount to be
+              received before the sender confirms.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="feature3Title">Local receiving options</h3>
+            <p data-i18n="feature3Body">
+              We are working on supported mobile wallet and bank payout
+              options, depending on the market.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="corridors" class="section section--alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="routesTitle">
+          Where we plan to begin
+        </h2>
+
+        <p class="section-intro" data-i18n="routesIntro">
+          These are our planned launch routes, not currently available
+          services. Final availability depends on partner approvals,
+          integrations and testing.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <span class="badge" data-i18n="congoBadge">
+              PLANNED · DR CONGO
+            </span>
+
+            <h3 data-i18n="congoTitle">Connections to DR Congo</h3>
+
+            <div class="route" data-i18n="routeBelgium">
+              Belgium → DR Congo
+            </div>
+
+            <div class="route" data-i18n="routeNetherlandsCongo">
+              Netherlands → DR Congo
+            </div>
+
+            <div class="route" data-i18n="routeFrance">
+              France → DR Congo
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="badge" data-i18n="egyptBadge">
+              PLANNED · EGYPT
+            </span>
+
+            <h3 data-i18n="egyptTitle">Connections to Egypt</h3>
+
+            <div class="route" data-i18n="routeNetherlandsEgypt">
+              Netherlands → Egypt
+            </div>
+
+            <div class="route" data-i18n="routeItaly">
+              Italy → Egypt
+            </div>
+          </article>
+        </div>
+
+        <p class="tiny" data-i18n="routesNote">
+          We are also exploring payments between African markets.
+          Additional routes will be announced as they are confirmed.
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="aboutTitle">
+          Meet FutaPay
+        </h2>
+
+        <p class="section-intro" data-i18n="aboutIntro">
+          FutaPay is a product being developed by Nyota Technologies
+          in the Netherlands. We are building a payment-link experience
+          to help people connected to Europe and Africa request and
+          receive payments more easily.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="nextTitle">What happens next?</h3>
+            <p data-i18n="nextBody">
+              We are preparing partner integrations and testing the
+              payment journey. We will announce confirmed routes,
+              payment methods and launch pricing before opening the service.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="pricingTitle">What will a payment cost?</h3>
+            <p data-i18n="pricingBody">
+              Launch pricing is being finalised. Fees and exchange rates
+              will depend on the route and payment method.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist" class="section waitlist">
+      <div class="container center">
+        <h2 class="section-title" data-i18n="waitlistTitle">
+          Be first to know when FutaPay launches
+        </h2>
+
+        <p class="section-intro" data-i18n="waitlistIntro">
+          Join the waitlist. We’ll email you with launch and route
+          availability updates.
+        </p>
+
+        <!--
+          This static form is present in the HTML so Netlify can
+          detect it during deployment. Enable Netlify Forms
+          and redeploy to collect submissions.
+        -->
+        <form
+          name="waitlist"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="website"
+          class="waitlist-form"
+        >
+          <input type="hidden" name="form-name" value="waitlist">
+          <input
+            id="signup-language"
+            type="hidden"
+            name="language"
+            value="en"
+          >
+
+          <p hidden>
+            <label>
+              Leave this field empty
+              <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </label>
+          </p>
+
+          <label
+            class="sr-only"
+            for="waitlist-email"
+            data-i18n="emailLabel"
+          >Email address</label>
+
+          <input
+            id="waitlist-email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            inputmode="email"
+            autocapitalize="none"
+            spellcheck="false"
+            dir="ltr"
+            required
+          >
+
+          <button
+            class="waitlist-submit"
+            type="submit"
+            data-i18n="joinButton"
+          >Join</button>
+        </form>
+
+        <p class="waitlist-contact">
+          <span data-i18n="contactPrompt">Or email us:</span>
+
+          <a href="mailto:hello@futapay.app" dir="ltr">
+            hello@futapay.app
+          </a>
+
+          <br>
+
+          <a href="mailto:hello@nyotatechnologies.com" dir="ltr">
+            hello@nyotatechnologies.com
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© <span id="year2"></span> Nyota Technologies</div>
+      <div>
+        © <span id="year">2026</span> <bdi>FutaPay</bdi> ·
+        <span data-i18n="footerCompany">
+          A product of Nyota Technologies
+        </span>
+      </div>
+
       <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Compliance</a>
+        <a href="mailto:hello@futapay.app" data-i18n="footerContact">
+          Contact
+        </a>
+        <a href="#about" data-i18n="footerAbout">
+          About FutaPay
+        </a>
       </div>
     </div>
   </footer>
 
   <script>
-    const y = new Date().getFullYear();
-    const yearEl = document.getElementById('year');
-    const year2El = document.getElementById('year2');
-    if (yearEl) yearEl.textContent = y;
-    if (year2El) year2El.textContent = y;
+    (() => {
+      "use strict";
 
-    // Toggle logic for how-it-works
-    const btns = document.querySelectorAll('.toggle-btn');
-    const sections = document.querySelectorAll('.how-steps');
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btns.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        sections.forEach(s => s.classList.add('hidden'));
-        const target = document.getElementById(btn.dataset.target);
-        if (target) target.classList.remove('hidden');
-      });
-    });
+      const translations = {
+        en: {
+          pageTitle: "FutaPay — Simple payments between Europe and Africa",
+          pageDescription: "Simple payment links between Europe and Africa. FutaPay is preparing for launch in December 2026.",
+          navigationLabel: "Main navigation",
+          languageLabel: "Language",
+          skip: "Skip to content",
+          announcement: "Coming soon · Target launch: December 2026",
+          navHow: "How it works",
+          navRoutes: "Planned routes",
+          navAbout: "About",
+          navWaitlist: "Join waitlist",
+          eyebrow: "One link. Closer connections.",
+          heroTitle: "Simple payments between Europe and Africa.",
+          heroDescription: "Create a payment link, share it, and make it easier for someone to pay you. FutaPay is being built for families, friends and businesses connected across borders.",
+          heroPrimary: "Join the waitlist",
+          heroSecondary: "See how it works",
+          launchNote: "Target launch: December 2026. Routes and payment options will be confirmed before launch.",
+          paymentLink: "Payment Link",
+          illustration: "Illustration",
+          demoTitle: "A request you can share.",
+          demoStep1: "Create your payment link",
+          demoStep2: "Share it in your favourite chat",
+          demoStep3: "Receive through a supported payout option",
+          demoNote: "Product concept preview. This is not a live checkout.",
+          howTitle: "A simpler way to request a payment",
+          howIntro: "Here is how FutaPay is designed to work on supported routes.",
+          how1Title: "1. Create a link",
+          how1Body: "The receiver enters the amount and selects an available payout option.",
+          how2Title: "2. Share it",
+          how2Body: "Send the link through WhatsApp, SMS or email. The sender reviews the payment details and available payment methods.",
+          how3Title: "3. Receive the payment",
+          how3Body: "After payment confirmation and required checks, the payout is processed. Available methods and timing depend on the route.",
+          featuresTitle: "Built around everyday connections",
+          feature1Title: "Easy to share",
+          feature1Body: "A payment request that fits into the conversations you already have.",
+          feature2Title: "Clarity before payment",
+          feature2Body: "Our goal: show the fee, exchange rate and amount to be received before the sender confirms.",
+          feature3Title: "Local receiving options",
+          feature3Body: "We are working on supported mobile wallet and bank payout options, depending on the market.",
+          routesTitle: "Where we plan to begin",
+          routesIntro: "These are our planned launch routes, not currently available services. Final availability depends on partner approvals, integrations and testing.",
+          congoBadge: "PLANNED · DR CONGO",
+          congoTitle: "Connections to DR Congo",
+          routeBelgium: "Belgium → DR Congo",
+          routeNetherlandsCongo: "Netherlands → DR Congo",
+          routeFrance: "France → DR Congo",
+          egyptBadge: "PLANNED · EGYPT",
+          egyptTitle: "Connections to Egypt",
+          routeNetherlandsEgypt: "Netherlands → Egypt",
+          routeItaly: "Italy → Egypt",
+          routesNote: "We are also exploring payments between African markets. Additional routes will be announced as they are confirmed.",
+          aboutTitle: "Meet FutaPay",
+          aboutIntro: "FutaPay is a product being developed by Nyota Technologies in the Netherlands. We are building a payment-link experience to help people connected to Europe and Africa request and receive payments more easily.",
+          nextTitle: "What happens next?",
+          nextBody: "We are preparing partner integrations and testing the payment journey. We will announce confirmed routes, payment methods and launch pricing before opening the service.",
+          pricingTitle: "What will a payment cost?",
+          pricingBody: "Launch pricing is being finalised. Fees and exchange rates will depend on the route and payment method.",
+          waitlistTitle: "Be first to know when FutaPay launches",
+          waitlistIntro: "Join the waitlist. We’ll email you with launch and route availability updates.",
+          emailLabel: "Email address",
+          joinButton: "Join",
+          contactPrompt: "Or email us:",
+          footerCompany: "A product of Nyota Technologies",
+          footerContact: "Contact",
+          footerAbout: "About FutaPay"
+        },
 
-    // ✅ Keep header neatly under the announcement bar (no overlap)
-    function setAnnounceOffset() {
-      const bar = document.getElementById('fp-announce');
-      const h = bar ? bar.offsetHeight : 0;
-      document.documentElement.style.setProperty('--fp-announce-h', h + 'px');
-    }
-    window.addEventListener('resize', setAnnounceOffset);
+        fr: {
+          pageTitle: "FutaPay — Des paiements simples entre l’Europe et l’Afrique",
+          pageDescription: "Des liens de paiement simples entre l’Europe et l’Afrique. FutaPay prépare son lancement pour décembre 2026.",
+          navigationLabel: "Navigation principale",
+          languageLabel: "Langue",
+          skip: "Aller au contenu",
+          announcement: "Bientôt disponible · Lancement prévu : décembre 2026",
+          navHow: "Fonctionnement",
+          navRoutes: "Trajets prévus",
+          navAbout: "À propos",
+          navWaitlist: "Liste d’attente",
+          eyebrow: "Un lien. Plus de proximité.",
+          heroTitle: "Des paiements simples entre l’Europe et l’Afrique.",
+          heroDescription: "Créez un lien de paiement, partagez-le et simplifiez la façon dont vos proches ou clients vous paient. FutaPay est conçu pour les familles, les amis et les entreprises qui échangent au-delà des frontières.",
+          heroPrimary: "Rejoindre la liste d’attente",
+          heroSecondary: "Découvrir le fonctionnement",
+          launchNote: "Lancement prévu en décembre 2026. Les trajets et moyens de paiement seront confirmés avant le lancement.",
+          paymentLink: "Lien de paiement",
+          illustration: "Illustration",
+          demoTitle: "Une demande à partager.",
+          demoStep1: "Créez votre lien de paiement",
+          demoStep2: "Partagez-le dans votre messagerie",
+          demoStep3: "Recevez via une option de versement disponible",
+          demoNote: "Aperçu du concept. Il ne s’agit pas d’une page de paiement active.",
+          howTitle: "Une façon plus simple de demander un paiement",
+          howIntro: "Voici le fonctionnement prévu de FutaPay sur les trajets disponibles.",
+          how1Title: "1. Créez un lien",
+          how1Body: "Le bénéficiaire indique le montant et choisit une option de versement disponible.",
+          how2Title: "2. Partagez-le",
+          how2Body: "Envoyez le lien par WhatsApp, SMS ou e-mail. L’expéditeur consulte les détails et les moyens de paiement proposés.",
+          how3Title: "3. Recevez le paiement",
+          how3Body: "Après confirmation du paiement et les vérifications nécessaires, le versement est traité. Les options et délais dépendent du trajet.",
+          featuresTitle: "Pensé pour les liens du quotidien",
+          feature1Title: "Facile à partager",
+          feature1Body: "Une demande de paiement à partager dans vos conversations habituelles.",
+          feature2Title: "Des informations claires avant de payer",
+          feature2Body: "Notre objectif : afficher les frais, le taux de change et le montant à recevoir avant la confirmation.",
+          feature3Title: "Des options de réception locales",
+          feature3Body: "Nous préparons des options de versement vers des portefeuilles mobiles et des comptes bancaires, selon les marchés.",
+          routesTitle: "Nos premiers trajets prévus",
+          routesIntro: "Il s’agit des trajets prévus au lancement, et non de services actuellement disponibles. Leur ouverture dépend des accords avec nos partenaires, des intégrations et des tests.",
+          congoBadge: "PRÉVU · RD CONGO",
+          congoTitle: "Des liens avec la RD Congo",
+          routeBelgium: "Belgique → RD Congo",
+          routeNetherlandsCongo: "Pays-Bas → RD Congo",
+          routeFrance: "France → RD Congo",
+          egyptBadge: "PRÉVU · ÉGYPTE",
+          egyptTitle: "Des liens avec l’Égypte",
+          routeNetherlandsEgypt: "Pays-Bas → Égypte",
+          routeItaly: "Italie → Égypte",
+          routesNote: "Nous étudions également les paiements entre marchés africains. D’autres trajets seront annoncés à mesure de leur confirmation.",
+          aboutTitle: "Découvrez FutaPay",
+          aboutIntro: "FutaPay est un produit développé par Nyota Technologies aux Pays-Bas. Nous créons une expérience de paiement par lien pour simplifier les demandes et la réception de paiements entre l’Europe et l’Afrique.",
+          nextTitle: "La suite ?",
+          nextBody: "Nous préparons les intégrations avec nos partenaires et testons le parcours de paiement. Nous annoncerons les trajets confirmés, les moyens de paiement et les tarifs avant l’ouverture du service.",
+          pricingTitle: "Combien coûtera un paiement ?",
+          pricingBody: "Les tarifs de lancement sont en cours de finalisation. Les frais et taux de change dépendront du trajet et du moyen de paiement.",
+          waitlistTitle: "Soyez parmi les premiers informés du lancement de FutaPay",
+          waitlistIntro: "Inscrivez-vous sur la liste d’attente. Nous vous informerons par e-mail du lancement et des trajets disponibles.",
+          emailLabel: "Adresse e-mail",
+          joinButton: "S’inscrire",
+          contactPrompt: "Ou écrivez-nous :",
+          footerCompany: "Un produit de Nyota Technologies",
+          footerContact: "Contact",
+          footerAbout: "À propos de FutaPay"
+        },
 
-    // ✅ Beta bar dismiss (remembers choice)
-    const bar = document.getElementById('fp-announce');
-    const closeBtn = document.querySelector('.fp-announce__close');
+        ar: {
+          pageTitle: "FutaPay — مدفوعات بسيطة بين أوروبا وأفريقيا",
+          pageDescription: "روابط دفع بسيطة بين أوروبا وأفريقيا. تستعد FutaPay للإطلاق في ديسمبر 2026.",
+          navigationLabel: "التنقل الرئيسي",
+          languageLabel: "اللغة",
+          skip: "انتقل إلى المحتوى",
+          announcement: "قريبًا · موعد الإطلاق المستهدف: ديسمبر 2026",
+          navHow: "كيف تعمل الخدمة",
+          navRoutes: "مسارات التحويل المخططة",
+          navAbout: "من نحن",
+          navWaitlist: "قائمة الانتظار",
+          eyebrow: "رابط واحد. تواصل أقرب.",
+          heroTitle: "مدفوعات بسيطة بين أوروبا وأفريقيا.",
+          heroDescription: "أنشئ رابط دفع وشاركه لتسهّل على الآخرين الدفع لك. نطوّر FutaPay للعائلات والأصدقاء والشركات التي تجمعها علاقات عبر الحدود.",
+          heroPrimary: "انضم إلى قائمة الانتظار",
+          heroSecondary: "تعرّف على طريقة العمل",
+          launchNote: "موعد الإطلاق المستهدف: ديسمبر 2026. سنؤكد مسارات التحويل وخيارات الدفع قبل الإطلاق.",
+          paymentLink: "رابط دفع",
+          illustration: "مثال توضيحي",
+          demoTitle: "طلب دفع يمكنك مشاركته.",
+          demoStep1: "أنشئ رابط الدفع الخاص بك",
+          demoStep2: "شاركه عبر تطبيق المراسلة الذي تفضّله",
+          demoStep3: "استلم الأموال عبر أحد خيارات الاستلام المدعومة",
+          demoNote: "عرض توضيحي لفكرة المنتج. هذه ليست صفحة دفع فعلية.",
+          howTitle: "طريقة أبسط لطلب الدفع",
+          howIntro: "هذه هي آلية العمل المخططة لخدمة FutaPay على مسارات التحويل المدعومة.",
+          how1Title: "1. أنشئ رابطًا",
+          how1Body: "يُدخل المستلم المبلغ ويختار أحد خيارات استلام الأموال المتاحة.",
+          how2Title: "2. شارك الرابط",
+          how2Body: "أرسل الرابط عبر واتساب أو رسالة نصية أو البريد الإلكتروني. يراجع المرسل تفاصيل الدفع وطرق الدفع المتاحة.",
+          how3Title: "3. استلم الأموال",
+          how3Body: "بعد تأكيد الدفع وإتمام التحقّقات المطلوبة، تتم معالجة تحويل الأموال إلى المستلم. تختلف الخيارات والمدة حسب مسار التحويل.",
+          featuresTitle: "مصمّم لروابط الحياة اليومية",
+          feature1Title: "سهل المشاركة",
+          feature1Body: "طلب دفع يمكنك مشاركته ضمن محادثاتك المعتادة.",
+          feature2Title: "وضوح قبل الدفع",
+          feature2Body: "هدفنا: عرض الرسوم وسعر الصرف والمبلغ الذي سيصل إلى المستلم قبل أن يؤكد المرسل الدفع.",
+          feature3Title: "خيارات استلام محلية",
+          feature3Body: "نعمل على توفير خيارات لاستلام الأموال عبر المحافظ الإلكترونية والحسابات البنكية، حسب السوق.",
+          routesTitle: "أين نخطط للبدء",
+          routesIntro: "هذه مسارات التحويل المخططة للإطلاق، وليست خدمات متاحة حاليًا. يعتمد توفرها النهائي على موافقات الشركاء وعمليات الربط التقني والاختبارات.",
+          congoBadge: "مخطط · جمهورية الكونغو الديمقراطية",
+          congoTitle: "تحويلات إلى جمهورية الكونغو الديمقراطية",
+          routeBelgium: "من بلجيكا إلى جمهورية الكونغو الديمقراطية",
+          routeNetherlandsCongo: "من هولندا إلى جمهورية الكونغو الديمقراطية",
+          routeFrance: "من فرنسا إلى جمهورية الكونغو الديمقراطية",
+          egyptBadge: "مخطط · مصر",
+          egyptTitle: "تحويلات إلى مصر",
+          routeNetherlandsEgypt: "من هولندا إلى مصر",
+          routeItaly: "من إيطاليا إلى مصر",
+          routesNote: "ندرس أيضًا المدفوعات بين الأسواق الأفريقية. سنعلن عن مسارات إضافية عند تأكيدها.",
+          aboutTitle: "تعرّف على FutaPay",
+          aboutIntro: "FutaPay منتج تطوّره شركة Nyota Technologies في هولندا. نعمل على إنشاء تجربة دفع عبر الروابط لتسهيل طلب المدفوعات واستلامها للأشخاص الذين تربطهم علاقات بأوروبا وأفريقيا.",
+          nextTitle: "ما الخطوة التالية؟",
+          nextBody: "نعمل على الربط التقني مع شركائنا واختبار رحلة الدفع. سنعلن عن مسارات التحويل المؤكدة وطرق الدفع ورسوم الإطلاق قبل إتاحة الخدمة.",
+          pricingTitle: "ما تكلفة الدفع؟",
+          pricingBody: "نعمل على وضع اللمسات الأخيرة على رسوم الإطلاق. ستختلف الرسوم وأسعار الصرف حسب مسار التحويل وطريقة الدفع.",
+          waitlistTitle: "كن من أوائل من يعرفون بإطلاق FutaPay",
+          waitlistIntro: "انضم إلى قائمة الانتظار. سنرسل إليك أخبار الإطلاق ومسارات التحويل المتاحة عبر البريد الإلكتروني.",
+          emailLabel: "البريد الإلكتروني",
+          joinButton: "انضم",
+          contactPrompt: "أو راسلنا:",
+          footerCompany: "منتج من Nyota Technologies",
+          footerContact: "تواصل معنا",
+          footerAbout: "عن FutaPay"
+        },
 
-    if (bar && closeBtn) {
-      if (localStorage.getItem('fp_announce_dismissed') === '1') {
-        bar.remove();
-      } else {
-        closeBtn.addEventListener('click', () => {
-          localStorage.setItem('fp_announce_dismissed', '1');
-          bar.remove();
-          setAnnounceOffset();
-        });
+        sw: {
+          pageTitle: "FutaPay — Malipo rahisi kati ya Ulaya na Afrika",
+          pageDescription: "Viungo rahisi vya malipo kati ya Ulaya na Afrika. FutaPay inajiandaa kuzinduliwa Desemba 2026.",
+          navigationLabel: "Menyu kuu",
+          languageLabel: "Lugha",
+          skip: "Ruka hadi kwenye maudhui",
+          announcement: "Inakuja hivi karibuni · Tunatarajia kuzindua Desemba 2026",
+          navHow: "Jinsi inavyofanya kazi",
+          navRoutes: "Njia zilizopangwa",
+          navAbout: "Kuhusu sisi",
+          navWaitlist: "Jiunge na orodha",
+          eyebrow: "Kiungo kimoja. Uhusiano wa karibu zaidi.",
+          heroTitle: "Malipo rahisi kati ya Ulaya na Afrika.",
+          heroDescription: "Unda kiungo cha malipo, kishiriki, na urahisishe kupokea malipo. Tunatengeneza FutaPay kwa ajili ya familia, marafiki na biashara zinazowasiliana kuvuka mipaka.",
+          heroPrimary: "Jiunge na orodha ya wanaosubiri",
+          heroSecondary: "Angalia jinsi inavyofanya kazi",
+          launchNote: "Tunatarajia kuzindua Desemba 2026. Tutathibitisha njia za kutuma pesa na chaguo za malipo kabla ya uzinduzi.",
+          paymentLink: "Kiungo cha malipo",
+          illustration: "Mfano wa kuonyesha",
+          demoTitle: "Ombi la malipo unaloweza kushiriki.",
+          demoStep1: "Unda kiungo chako cha malipo",
+          demoStep2: "Kishiriki kupitia programu yako pendwa ya ujumbe",
+          demoStep3: "Pokea pesa kupitia chaguo linalopatikana",
+          demoNote: "Huu ni mfano wa jinsi huduma itakavyokuwa. Huu si ukurasa wa kufanya malipo halisi.",
+          howTitle: "Njia rahisi zaidi ya kuomba malipo",
+          howIntro: "Hivi ndivyo FutaPay imepangwa kufanya kazi kwenye njia zinazopatikana.",
+          how1Title: "1. Unda kiungo",
+          how1Body: "Mpokeaji anaweka kiasi na kuchagua njia inayopatikana ya kupokea pesa.",
+          how2Title: "2. Kishiriki",
+          how2Body: "Tuma kiungo kupitia WhatsApp, SMS au barua pepe. Mtumaji anakagua maelezo ya malipo na njia za kulipa zinazopatikana.",
+          how3Title: "3. Pokea malipo",
+          how3Body: "Baada ya malipo kuthibitishwa na ukaguzi unaohitajika kukamilika, pesa zinatumwa kwa mpokeaji. Chaguo na muda hutegemea njia ya kutuma pesa.",
+          featuresTitle: "Imeundwa kwa mahusiano ya kila siku",
+          feature1Title: "Rahisi kushiriki",
+          feature1Body: "Ombi la malipo unaloweza kushiriki katika mazungumzo yako ya kawaida.",
+          feature2Title: "Uwazi kabla ya kulipa",
+          feature2Body: "Lengo letu: kuonyesha ada, kiwango cha ubadilishaji wa fedha na kiasi kitakachopokelewa kabla mtumaji hajathibitisha malipo.",
+          feature3Title: "Chaguo za kupokea pesa nchini mwako",
+          feature3Body: "Tunatayarisha chaguo za kupokea pesa kupitia pochi za simu na akaunti za benki, kulingana na soko.",
+          routesTitle: "Tunapanga kuanzia wapi",
+          routesIntro: "Hizi ni njia tunazopanga kutoa wakati wa uzinduzi, si huduma zinazopatikana sasa. Upatikanaji wa mwisho unategemea idhini za washirika, kuunganisha mifumo na majaribio.",
+          congoBadge: "IMEPANGWA · DR KONGO",
+          congoTitle: "Kutuma pesa kwenda DR Kongo",
+          routeBelgium: "Ubelgiji → DR Kongo",
+          routeNetherlandsCongo: "Uholanzi → DR Kongo",
+          routeFrance: "Ufaransa → DR Kongo",
+          egyptBadge: "IMEPANGWA · MISRI",
+          egyptTitle: "Kutuma pesa kwenda Misri",
+          routeNetherlandsEgypt: "Uholanzi → Misri",
+          routeItaly: "Italia → Misri",
+          routesNote: "Pia tunachunguza uwezekano wa malipo kati ya masoko ya Afrika. Tutatangaza njia zaidi zitakapothibitishwa.",
+          aboutTitle: "Ifahamu FutaPay",
+          aboutIntro: "FutaPay ni bidhaa inayotengenezwa na Nyota Technologies nchini Uholanzi. Tunatengeneza huduma ya malipo kupitia viungo ili kurahisisha kuomba na kupokea malipo kwa watu wenye uhusiano na Ulaya na Afrika.",
+          nextTitle: "Nini kinafuata?",
+          nextBody: "Tunatayarisha miunganisho na mifumo ya washirika na kujaribu mchakato wa malipo. Tutatangaza njia zilizothibitishwa, mbinu za malipo na ada za uzinduzi kabla ya kufungua huduma.",
+          pricingTitle: "Malipo yatagharimu kiasi gani?",
+          pricingBody: "Tunakamilisha ada za uzinduzi. Ada na viwango vya ubadilishaji wa fedha vitategemea njia ya kutuma pesa na mbinu ya malipo.",
+          waitlistTitle: "Kuwa wa kwanza kujua FutaPay itakapozinduliwa",
+          waitlistIntro: "Jiunge na orodha ya wanaosubiri. Tutakutumia barua pepe kuhusu uzinduzi na njia zitakazopatikana.",
+          emailLabel: "Anwani ya barua pepe",
+          joinButton: "Jiunge",
+          contactPrompt: "Au tutumie barua pepe:",
+          footerCompany: "Bidhaa ya Nyota Technologies",
+          footerContact: "Wasiliana nasi",
+          footerAbout: "Kuhusu FutaPay"
+        }
+      };
+
+      const header = document.querySelector(".site-header");
+      const navigation = document.querySelector(".main-nav");
+      const languageSwitcher = document.querySelector(".language-switch");
+      const languageButtons = document.querySelectorAll("[data-language]");
+      const translatedElements = document.querySelectorAll("[data-i18n]");
+      const signupLanguage = document.getElementById("signup-language");
+      const description = document.querySelector('meta[name="description"]');
+
+      function updateHeaderOffset() {
+        if (!header) return;
+
+        document.documentElement.style.scrollPaddingTop =
+          `${Math.ceil(header.getBoundingClientRect().height) + 20}px`;
       }
-    }
 
-    // Run once on load
-    setAnnounceOffset();
+      function setLanguage(requestedLanguage) {
+        const language = Object.prototype.hasOwnProperty.call(
+          translations,
+          requestedLanguage
+        ) ? requestedLanguage : "en";
+
+        const dictionary = translations[language];
+
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+        document.title = dictionary.pageTitle;
+
+        if (description) {
+          description.content = dictionary.pageDescription;
+        }
+
+        translatedElements.forEach(element => {
+          const key = element.dataset.i18n;
+          const value = dictionary[key] ?? translations.en[key];
+
+          if (typeof value === "string") {
+            element.textContent = value;
+          }
+        });
+
+        languageButtons.forEach(button => {
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.language === language)
+          );
+        });
+
+        if (navigation) {
+          navigation.setAttribute(
+            "aria-label",
+            dictionary.navigationLabel
+          );
+        }
+
+        if (languageSwitcher) {
+          languageSwitcher.setAttribute(
+            "aria-label",
+            dictionary.languageLabel
+          );
+        }
+
+        if (signupLanguage) {
+          signupLanguage.value = language;
+        }
+
+        try {
+          localStorage.setItem("futapay-language", language);
+        } catch (error) {
+          // Language switching works even when storage is unavailable.
+        }
+
+        updateHeaderOffset();
+      }
+
+      languageButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.language);
+        });
+      });
+
+      const year = document.getElementById("year");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      let initialLanguage = "en";
+
+      try {
+        initialLanguage =
+          localStorage.getItem("futapay-language") || "en";
+      } catch (error) {
+        // English is the default when no preference is available.
+      }
+
+      setLanguage(initialLanguage);
+
+      window.addEventListener("resize", updateHeaderOffset);
+
+      if (header && typeof ResizeObserver !== "undefined") {
+        const headerObserver = new ResizeObserver(updateHeaderOffset);
+        headerObserver.observe(header);
+      }
+    })();
   </script>
 </body>
 </html>
